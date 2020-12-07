@@ -51,6 +51,10 @@ server {
       alias /var/www/{{ item.key }}/.well-known;
    }
 
+{% if item.value.extra_locations_data is defined %}
+{{ item.value.extra_locations_data }}
+{% endif %}
+
    access_log /var/log/nginx/{{ item.key }}_access.log;
    error_log /var/log/nginx/{{ item.key }}_error.log error;
 
