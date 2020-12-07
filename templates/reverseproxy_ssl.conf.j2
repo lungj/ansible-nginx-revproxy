@@ -108,5 +108,10 @@ server {
       auth_basic_user_file /etc/nginx/{{ item.key }}_htpasswd;
 {% endif %}
    }
+
+{% if item.value.extra_locations_data is defined %}
+   {{ item.value.extra_locations_data | indent(3) }}
+{% endif %}
+
 }
 {% endif %}
